@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-06-08 17:14:53",
+  "results": [
+    {
+      "test": "t1_simple_no_obstacle",
+      "status": "PASS",
+      "dijkstra": {
+        "expanded": 2500,
+        "time_ms": 0.01,
+        "path_len": 69.3
+      },
+      "astar": {
+        "expanded": 50,
+        "time_ms": 0.01,
+        "path_len": 69.3
+      },
+      "adaptive_astar": {
+        "expanded": 50,
+        "time_ms": 0.54,
+        "path_len": 69.3
+      }
+    },
+    {
+      "test": "t2_sparse_obstacles",
+      "status": "PASS",
+      "dijkstra": {
+        "expanded": 8458,
+        "time_ms": 0.04,
+        "path_len": 152.89
+      },
+      "astar": {
+        "expanded": 3019,
+        "time_ms": 0.03,
+        "path_len": 152.89
+      },
+      "adaptive_astar": {
+        "expanded": 3061,
+        "time_ms": 34.05,
+        "path_len": 152.89
+      }
+    },
+    {
+      "test": "test_t3_dense_obstacles",
+      "status": "FAIL",
+      "error": "[T3] Dijkstra: no path found"
+    },
+    {
+      "test": "t4_maze",
+      "status": "PASS",
+      "dijkstra": {
+        "expanded": 6320,
+        "time_ms": 0.6,
+        "path_len": 2896.0
+      },
+      "astar": {
+        "expanded": 6189,
+        "time_ms": 0.55,
+        "path_len": 2896.0
+      },
+      "adaptive_astar": {
+        "expanded": 6189,
+        "time_ms": 26.47,
+        "path_len": 2896.0
+      }
+    },
+    {
+      "test": "t5_dynamic_obstacles",
+      "status": "PASS",
+      "global_astar": {
+        "expanded": 4758,
+        "time_ms": 0.06,
+        "path_len": 160.51
+      },
+      "local_path_len": 161.1,
+      "dynamic_obstacles": 30,
+      "collision_free": true
+    },
+    {
+      "test": "test_t6_large_scale",
+      "status": "FAIL",
+      "error": "[T6] AdaptiveA*: no path found"
+    }
+  ]
+}

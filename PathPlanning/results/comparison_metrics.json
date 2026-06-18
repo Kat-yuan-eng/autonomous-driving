@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-06-08 18:09:12",
+  "global_comparison": {
+    "obs_10%": {
+      "Dijkstra": {
+        "path_length": 149.97,
+        "expanded_nodes": 9005.3,
+        "planning_time_ms": 37.03,
+        "n_valid_trials": 3
+      },
+      "A*(euclidean)": {
+        "path_length": 149.97,
+        "expanded_nodes": 3279.3,
+        "planning_time_ms": 15.92,
+        "n_valid_trials": 3
+      },
+      "A*(manhattan)": {
+        "path_length": 154.84,
+        "expanded_nodes": 159.7,
+        "planning_time_ms": 0.79,
+        "n_valid_trials": 3
+      },
+      "A*(chebyshev)": {
+        "path_length": 149.97,
+        "expanded_nodes": 4998.3,
+        "planning_time_ms": 28.87,
+        "n_valid_trials": 3
+      },
+      "AdaptiveA*": {
+        "path_length": 149.97,
+        "expanded_nodes": 3428.3,
+        "planning_time_ms": 19.18,
+        "n_valid_trials": 3
+      }
+    },
+    "obs_20%": {
+      "Dijkstra": {
+        "path_length": 161.1,
+        "expanded_nodes": 7993.0,
+        "planning_time_ms": 30.27,
+        "n_valid_trials": 2
+      },
+      "A*(euclidean)": {
+        "path_length": 161.1,
+        "expanded_nodes": 4413.5,
+        "planning_time_ms": 19.31,
+        "n_valid_trials": 2
+      },
+      "A*(manhattan)": {
+        "path_length": 165.9,
+        "expanded_nodes": 198.5,
+        "planning_time_ms": 0.84,
+        "n_valid_trials": 2
+      },
+      "A*(chebyshev)": {
+        "path_length": 161.1,
+        "expanded_nodes": 5153.0,
+        "planning_time_ms": 22.32,
+        "n_valid_trials": 2
+      },
+      "AdaptiveA*": {
+        "path_length": 161.1,
+        "expanded_nodes": 4748.5,
+        "planning_time_ms": 23.61,
+        "n_valid_trials": 2
+      }
+    },
+    "obs_30%": {
+      "Dijkstra": {
+        "path_length": 172.58,
+        "expanded_nodes": 6854.5,
+        "planning_time_ms": 23.84,
+        "n_valid_trials": 2
+      },
+      "A*(euclidean)": {
+        "path_length": 172.58,
+        "expanded_nodes": 4048.5,
+        "planning_time_ms": 15.76,
+        "n_valid_trials": 2
+      },
+      "A*(manhattan)": {
+        "path_length": 175.81,
+        "expanded_nodes": 382.5,
+        "planning_time_ms": 1.48,
+        "n_valid_trials": 2
+      },
+      "A*(chebyshev)": {
+        "path_length": 172.58,
+        "expanded_nodes": 4632.5,
+        "planning_time_ms": 17.94,
+        "n_valid_trials": 2
+      },
+      "AdaptiveA*": {
+        "path_length": 172.58,
+        "expanded_nodes": 4279.5,
+        "planning_time_ms": 19.06,
+        "n_valid_trials": 2
+      }
+    }
+  },
+  "local_comparison": {
+    "RRT": {
+      "smoothness": 0.036111,
+      "obstacle_distance": 0.5,
+      "computation_time": 0.96,
+      "dynamic_adaptability": 0.5,
+      "path_length": 129.06,
+      "min_obs_dist": 2.51,
+      "plan_time_ms": 39.31,
+      "exec_time": 51.63,
+      "J": 7.3171
+    },
+    "DWA": {
+      "smoothness": 0.015059,
+      "obstacle_distance": 0.75,
+      "computation_time": 0.51,
+      "dynamic_adaptability": 0.96,
+      "path_length": 134.04,
+      "min_obs_dist": 3.76,
+      "plan_time_ms": 987.01,
+      "exec_time": 57.2,
+      "J": 8.5166
+    },
+    "TEB": {
+      "smoothness": 0.001713,
+      "obstacle_distance": 0.97,
+      "computation_time": 0.9,
+      "dynamic_adaptability": 0.88,
+      "path_length": 129.67,
+      "min_obs_dist": 4.85,
+      "plan_time_ms": 95.22,
+      "exec_time": 20.95,
+      "J": 1.2859
+    }
+  }
+}

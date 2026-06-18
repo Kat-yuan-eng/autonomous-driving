@@ -1,0 +1,3 @@
+"""
+Global path planning algorithms
+"""

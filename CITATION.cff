@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Autonomous Driving: A Multi-Module Algorithmic Framework"
+abstract: >-
+  An autonomous driving system comprising four algorithmically coupled
+  modules: Perception, PathPlanning, Control, and SLAM. The system is
+  designed for an Ackermann-steered vehicle operating in indoor structured
+  environments under embedded-platform real-time constraints. The framework
+  achieves 0.096 m SLAM position RMSE, sub-5 cm perception tracking RMSE,
+  and 0.037 m lateral control RMSE on representative test scenarios.
+authors:
+  - given-names: "RuiWen"
+    family-names: "Liao"
+    alias: "Kat-yuan-eng"
+keywords:
+  - autonomous-driving
+  - slam
+  - perception
+  - path-planning
+  - control
+  - lqr
+  - stanley
+  - ukf
+  - cartographer
+license: "MIT"
+repository-code: "https://github.com/Kat-yuan-eng/autonomous-driving"
+version: "1.0.0"
+date-released: "2026-06-18"
+preferred-citation:
+  type: software
+  authors:
+    - given-names: "RuiWen"
+      family-names: "Liao"
+      alias: "Kat-yuan-eng"
+  title: "Autonomous Driving: A Multi-Module Algorithmic Framework"
+  year: 2026
+  url: "https://github.com/Kat-yuan-eng/autonomous-driving"

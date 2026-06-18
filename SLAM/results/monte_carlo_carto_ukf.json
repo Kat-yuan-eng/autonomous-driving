@@ -1,0 +1,32 @@
+{
+  "pos_rmse": {
+    "mean": 0.021999,
+    "std": 0.0023,
+    "cv_pct": 10.455393
+  },
+  "heading_rmse": {
+    "mean": 0.033456,
+    "std": 0.001079,
+    "cv_pct": 3.224943
+  },
+  "ate_rmse": {
+    "mean": 0.0,
+    "std": 0.0,
+    "cv_pct": 0.0
+  },
+  "rpe_trans_rmse": {
+    "mean": 0.0,
+    "std": 0.0,
+    "cv_pct": 0.0
+  },
+  "rpe_rot_rmse": {
+    "mean": 0.0,
+    "std": 0.0,
+    "cv_pct": 0.0
+  },
+  "step_time_ms": {
+    "mean": 2.060556,
+    "std": 0.04427,
+    "cv_pct": 2.148468
+  }
+}

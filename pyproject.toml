@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autonomous-driving"
+version = "1.0.0"
+description = "Autonomous driving system with SLAM, Perception, PathPlanning, and Control modules"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "RuiWen Liao", email = "kat-yuan-eng@github"}]
+dependencies = [
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "matplotlib>=3.8.0",
+    "cvxpy>=1.4.0",
+]
+
+[tool.ruff]
+line-length = 88
+select = ["F", "E", "W", "UP"]
+ignore = ["E501", "E741", "E402"]
+target-version = "py310"
+
+[tool.mypy]
+ignore_missing_imports = true
