@@ -24,7 +24,7 @@ flowchart TB
         CTRL -->|steering + acceleration| VEH[Vehicle<br/>Ackermann Model]
     end
     subgraph FOUND[Foundation Layer]
-        SLAM[SLAM<br/>Cartographer-ESKF-UKF] -->|pose + map| PERC
+        SLAM[SLAM<br/>Cartographer-UKF] -->|pose + map| PERC
     end
     VEH -->|IMU + LiDAR + Wheel Odometry| SLAM
 ```
@@ -364,9 +364,9 @@ Performance is evaluated across five scenarios: `straight`, `s_curve`, `sharp_tu
 
 ## SLAM Algorithm Principle
 
-The SLAM module addresses mapping and localization for an Ackermann-steered vehicle in indoor structured environments. The core algorithm is a three-layer fusion architecture: ESKF (Error State Kalman Filter) for high-frequency IMU propagation, Cartographer pure localization for low-frequency global correction, and UKF (Unscented Kalman Filter) for optimal multi-source fusion.
+The SLAM module addresses mapping and localization for an Ackermann-steered vehicle in indoor structured environments. The core algorithm is a two-layer fusion architecture: UKF (Unscented Kalman Filter) for high-frequency state estimation with IMU propagation, and Cartographer pure localization for low-frequency global correction via scan matching. A 2-state degradation FSM (normal / carto_degraded) provides robustness when scan matching quality degrades.
 
-The system operates in two stages: offline mapping using Cartographer-style submap accumulation with pose graph optimization, and online localization with the three-layer fusion running at 50 Hz. The central innovation is a suite of five adaptive mechanisms that dynamically tune the UKF noise parameters based on motion characteristics and observation quality.
+The system operates in two stages: offline mapping using Cartographer-style submap accumulation with pose graph optimization, and online localization with the Cartographer-UKF fusion running at 50 Hz. The central innovation is a suite of five adaptive mechanisms that dynamically tune the UKF noise parameters based on motion characteristics and observation quality.
 
 ## SLAM Core Technical Implementation
 
@@ -407,7 +407,7 @@ Performance is evaluated on a figure-8 track (500 steps) with Monte Carlo robust
 
 ![Trajectory Overlay](SLAM/figs/fig1_trajectory_overlay.png)
 
-*Figure 17 | Trajectory overlay of reference, Cartographer offline mapping, and Cartographer-UKF online localization on the figure-8 track. The three trajectories are visually indistinguishable at the plot scale, demonstrating sub-10 cm mapping accuracy. The maximum deviation occurs at curvature transitions (inset), where the online localization lags by 3–5 cm before the UKF correction converges. The key finding is that the three-layer fusion architecture achieves tight trajectory tracking with no visible drift over the 500-step run.*
+*Figure 17 | Trajectory overlay of reference, Cartographer offline mapping, and Cartographer-UKF online localization on the figure-8 track. The three trajectories are visually indistinguishable at the plot scale, demonstrating sub-10 cm mapping accuracy. The maximum deviation occurs at curvature transitions (inset), where the online localization lags by 3–5 cm before the UKF correction converges. The key finding is that the Cartographer-UKF fusion architecture achieves tight trajectory tracking with no visible drift over the 500-step run.*
 
 ### Position Error Time Series
 
@@ -449,7 +449,7 @@ Performance is evaluated on a figure-8 track (500 steps) with Monte Carlo robust
 
 ![Core Metrics Comparison](SLAM/figs/fig7_core_metrics_comparison.png)
 
-*Figure 24 | Core metrics bar comparison across four SLAM algorithms. Cartographer-UKF achieves 2.6× better position accuracy than EKF-SLAM (0.096 m vs 0.248 m) and 6.2× better than FastSLAM (0.096 m vs 0.598 m). Heading RMSE shows similar trends, with Cartographer-UKF at 0.027 rad vs EKF-SLAM's 0.074 rad. The key finding is that the three-layer fusion with adaptive noise tuning consistently outperforms single-sensor approaches, with the largest gains in position accuracy where multi-source fusion provides the most benefit.*
+*Figure 24 | Core metrics bar comparison across four SLAM algorithms. Cartographer-UKF achieves 2.6× better position accuracy than EKF-SLAM (0.096 m vs 0.248 m) and 6.2× better than FastSLAM (0.096 m vs 0.598 m). Heading RMSE shows similar trends, with Cartographer-UKF at 0.027 rad vs EKF-SLAM's 0.074 rad. The key finding is that the Cartographer-UKF fusion with adaptive noise tuning consistently outperforms single-sensor approaches, with the largest gains in position accuracy where multi-source fusion provides the most benefit.*
 
 | Algorithm | Pos RMSE [m] | Heading RMSE [rad] | ATE [m] | Step Time [ms] |
 | --------- | ------------ | ------------------ | ------- | --------------- |
